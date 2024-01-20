@@ -50,25 +50,26 @@ public class GoogleSearchTest {
     }
     
     
-       @Test
-  public void testFacebook() throws Exception {
-      driver.manage().window().maximize();
-    driver.get("https://www.facebook.com/");
-    driver.findElement(By.id("email")).click();
-    driver.findElement(By.id("email")).clear();
-    driver.findElement(By.id("email")).sendKeys("abc@abc.com");
-    driver.findElement(By.id("pass")).clear();
-    driver.findElement(By.id("pass")).sendKeys("abc123");
-    driver.findElement(By.id("u_0_2")).click();
-    driver.findElement(By.id("header_block")).click();
-    try {
-        System.out.println("I am in");
-     // assertEquals("Log Into Facebook", driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Create New Account'])[1]/following::span[3]")).getText());
-    } catch (Error e) {
-      fail(e.toString());
-    } finally {
-        driver.close();
+  
+    @Test
+    public void testFacebook() throws Exception {
+        driver.manage().window().maximize();
+        driver.get("https://www.facebook.com/");
+        driver.findElement(By.id("email")).click();
+        driver.findElement(By.id("email")).clear();
+        driver.findElement(By.id("email")).sendKeys("abc@abc.com");
+        driver.findElement(By.id("pass")).clear();
+        driver.findElement(By.id("pass")).sendKeys("abc123");
+        driver.findElement(By.name("login")).click();
+      
+        try {
+            System.out.println("I am in");
+            // assertEquals("Log Into Facebook", driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Create New Account'])[1]/following::span[3]")).getText());
+        } catch (Error e) {
+            fail(e.toString());
+        } finally {
+            driver.close();
+        }
     }
-  }
     
 }
